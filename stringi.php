@@ -1,22 +1,3 @@
-Wiktor Syc
-
-ZALETY:
-WYDAJNOŚĆ
-SKALOWALNOŚĆ 
-INTERFEJS 
-WBUDOWANE BIBLIOTEKI 
-NISKI KOSZT
-LATWOSC NAUKI 
-SZEROKA MECHANIZMOW ZORIENTOWANYCH OBIEKTOWO 
-PRZENOSNOŚĆ
-DOSTEPNOSC DO KODU ZRODLOWEGO 
-
-tWORZENIE STRON PHP
-DOKUMENTY PHP MAJA ROZSZERZENIE PHP
-umiesczam plik ..\xampp\htdocs\
-
-127.0.0.1/nazwapliku.php
-
 <?php
 
 echo <<<'EOD'
@@ -46,7 +27,7 @@ echo "<br>";
 
 echo strpos ("hello world!", "world");
 
-echo <"br">
+echo <"br">;
 
 $tekst = "hello";
 
@@ -59,9 +40,6 @@ printf ("%10.3s"\n, $tekst); //wypisze {          hel}
 printf ("%-10.3s"\n, $tekst); //wypisze {hel          }
 
 
-
-
-
 $n = 36346634;
 printf ("%%d = '%d'\n", $n);
 printf ("%%f = '%f'\n", $n);
@@ -70,4 +48,3 @@ printf ("%%b = '%b'\n", $n);
 printf ("%%o = '%o'\n", $n);
 printf ("%%s = '%s'\n", $n);
 printf ("%%x = '%x'\n", $n);
-
