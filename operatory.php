@@ -2,30 +2,31 @@
 
 $a = 3;
 
-//assignment
-
 $b = &$a;
 
-// $b is a reference to Sa
-
 print "$a\n";
-
-// prints 3
-
 print "$b\n";
-
-// prints 3
 
 $a = 4;
 
-// change $a
-
 print "$a\n";
-
-//
-
-prints: 4
-
 print "$b\n";
 
-// prints 4
+echo "<h3>Postincrement</h3>";
+
+echo "Should be 5:<br />\n";
+
+$a = 5;
+echo $a++ . "<br />\n";
+
+echo "Should be 6: " . $a . "<br />\n";
+
+echo "<h3>Preincrement</h3>";
+
+$a = 5;
+
+echo "Should be 6: " . ++$a . "<br />\n";
+
+echo "Should be 6: " . $a . "<br />\n";
+
+?>
