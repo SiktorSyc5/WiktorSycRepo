@@ -71,3 +71,15 @@ printf ("%%o = '%o'\n", $n);
 printf ("%%s = '%s'\n", $n);
 printf ("%%x = '%x'\n", $n);
 
+---------------------------------------
+
+Referencja jesto wskazanie na nna zmienną 
+$foo = 'bob';
+$bar= &$foo; //referencja na $foo
+echo $bar;
+echo $foo
+
+
+
+
+
