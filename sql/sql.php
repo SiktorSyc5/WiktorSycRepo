@@ -1,6 +1,6 @@
+
 <?php
-
-
+ 
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -13,70 +13,81 @@ if (!$conn) {
 }
 echo "Connected successfully<br>";
 
-/*
-$sql = "CREATE DATABASE $database";
-
-if (mysqli_query($conn, $sql)) {
-    echo "Database created successfully<br>";
-} else {
-    echo "Error creating database: " . mysqli_error($conn) . "<br>";
+if (!mysqli_select_db($conn, $database)) {
+    die("Error selecting database: " . mysqli_error($conn));
 }
-*/
+echo "Database $database selected<br>";
 
-if (mysqli_select_db($conn, $database)) {
-    echo "Database $database selected<br>";
-} else {
-    echo "Error selecting database: " . mysqli_error($conn) . "<br>";
-}
-
-// TWORZENIE TABELI
-/*
-$sql = "CREATE TABLE MyGuests (
+// Utwórz tabelę jeśli nie istnieje
+$sql = "CREATE TABLE IF NOT EXISTS MyGuests (
     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     firstname VARCHAR(30) NOT NULL,
     lastname VARCHAR(30) NOT NULL,
     email VARCHAR(50),
     reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 )";
-
-if (mysqli_query($conn, $sql)) {
-    echo "Table MyGuests created successfully<br>";
-} else {
-    echo "Error creating table: " . mysqli_error($conn) . "<br>";
-}
-*/
-
-// pojedynczy INSERT
-$sql = "INSERT INTO MyGuests (firstname, lastname, email)
-VALUES ('John', 'Doe', 'john@example.com')";
-
-if (mysqli_query($conn, $sql)) {
-    echo "New record created successfully<br>";
-} else {
-    echo "Error: " . $sql . "<br>" . mysqli_error($conn) . "<br>";
+if (!mysqli_query($conn, $sql)) {
+    die("Error creating table: " . mysqli_error($conn));
 }
 
-// wielokrotne INSERTY
-$sql = "INSERT INTO MyGuests (firstname, lastname, email) VALUES ('John', 'Doe', 'john@example.com');";
-$sql .= "INSERT INTO MyGuests (firstname, lastname, email) VALUES ('Mary', 'Moe', 'mary@example.com');";
-$sql .= "INSERT INTO MyGuests (firstname, lastname, email) VALUES ('Julie', 'Dooley', 'julie@example.com');";
+// Wstaw przykładowe dane tylko jeśli tabela jest pusta
+$resultCount = mysqli_query($conn, "SELECT COUNT(*) AS cnt FROM MyGuests");
+if (!$resultCount) {
+    die("Query error: " . mysqli_error($conn));
+}
+$rowCount = mysqli_fetch_assoc($resultCount);
+mysqli_free_result($resultCount);
 
-if (mysqli_multi_query($conn, $sql)) {
-    echo "Multiple records created successfully<br>";
-} else {
-    echo "Error: " . $sql . "<br>" . mysqli_error($conn) . "<br>";
+if ($rowCount['cnt'] == 0) {
+    $sql = "
+        INSERT INTO MyGuests (firstname, lastname, email) VALUES
+        ('John', 'Doe', 'john@example.com'),
+        ('Mary', 'Moe', 'mary@example.com'),
+        ('Julie', 'Dooley', 'julie@example.com')
+    ";
+    if (!mysqli_query($conn, $sql)) {
+        echo "Insert error: " . mysqli_error($conn) . "<br>";
+    } else {
+        echo "Sample records inserted<br>";
+    }
 }
 
-// ODCZYT DANYCH
+// Pobierz dane (jedno zapytanie)
+$sql = "SELECT id, firstname, lastname FROM MyGuests";
+$result = mysqli_query($conn, $sql);
+
+if (!$result) {
+    die("Query error: " . mysqli_error($conn));
+}
+
+$rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+if (count($rows) > 0) {
+    echo "<table border='1'><tr><th>id</th><th>firstname</th><th>lastname</th></tr>";
+    foreach ($rows as $r) {
+        echo "<tr><td>".htmlspecialchars($r['id'])."</td><td>".htmlspecialchars($r['firstname'])."</td><td>".htmlspecialchars($r['lastname'])."</td></tr>";
+    }
+    echo "</table>";
+} else {
+    echo "0 results<br>";
+}
+
+
+
 $sql = "SELECT id, firstname, lastname FROM MyGuests";
 $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0) {
-    // output data of each row
-    while($row = mysqli_fetch_assoc($result)) {
-        echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
+    echo "<ul>";
+    while ($row = mysqli_fetch_row($result)) {
+        echo "<li>" . htmlspecialchars($row[0]) . " " . htmlspecialchars($row[1]) . " " . htmlspecialchars($row[2]) . "</li>";
     }
+    echo "</ul>";
 } else {
-    echo "0 results<br>";
+    echo "Brak wyników";
 }
+
+
+mysqli_free_result($result);
+mysqli_close($conn);
 ?>
