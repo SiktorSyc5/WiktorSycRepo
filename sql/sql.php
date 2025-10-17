@@ -87,6 +87,33 @@ if (mysqli_num_rows($result) > 0) {
     echo "Brak wyników";
 }
 
+$sql = "Delete FROM MyGuests WHERE id=3";
+if (mysqli_query($conn, $sql)) {
+    echo "Record deleted successfully<br>";
+} else {
+    echo "Error deleting record: " . mysqli_error($conn) . "<br>";
+}
+
+$sql = "UPDATE MyGuests SET lastname='Doe' WHERE id=2";
+
+if (mysqli_query($conn, $sql)) {
+
+echo "Record updated successfully";
+
+} else {
+
+echo "Error updating record: " . mysqli_error($conn);
+
+}
+
+//return the first 30 records
+
+$sql = "SELECT * FROM Orders LIMIT 30";
+
+//select records 16 25 (inclusive)?
+
+$sql = "SELECT * FROM Orders LIMIT 10 OFFSET 15";
+
 
 mysqli_free_result($result);
 mysqli_close($conn);
