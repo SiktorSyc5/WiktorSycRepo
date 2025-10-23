@@ -1,0 +1,18 @@
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#banner {
+    background-color: #00838F;
+    color: white;
+    margin: 5px;
+    font-size: 130%;
+}
+
+footer {
+    background-color: #00838F;
+    color: white;
+    margin: 5px;
+    font-size: 130%;
+}

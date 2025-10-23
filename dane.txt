@@ -1,0 +1,3 @@
+dr sol
+Key: aloow
+loadstring(game:HttpGet("https://raw.githubusercontent.com/starstreamowner/StarStream/refs/heads/main/Hub"))()
