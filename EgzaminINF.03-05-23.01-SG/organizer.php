@@ -22,7 +22,7 @@ $conn = new mysqli("localhost", "root", "", "kalendarz");
             <button type="submit" name="send">OK</button>
         </form>
         <?php
-        // Skrypt #1
+        
         if (isset($_POST['send'])) {
             $wydarzenie = $_POST['wydarzenie'];
             $sql = "UPDATE zadania SET wpis = '$wydarzenie' WHERE dataZadania = '2020-08-09';";
@@ -37,7 +37,7 @@ $conn = new mysqli("localhost", "root", "", "kalendarz");
 
     <main>
         <?php
-        // Skrypt #2
+        
         $sql = "SELECT dataZadania, wpis FROM zadania WHERE miesiac = 'sierpien';";
         $result = $conn->query($sql);
 
