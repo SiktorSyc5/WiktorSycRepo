@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Proste działania</title>
+  
+</head>
+<body>
+  <h1>PROSTE DZIAŁANIA</h1>
+
+  <label>Podaj pierwszą liczbę:</label><br>
+  <input type="number" id="liczba1"><br>
+
+  <label>Podaj drugą liczbę:</label><br>
+  <input type="number" id="liczba2"><br><br>
+
+  <button onclick="dzialanie('+')">DODAWANIE</button>
+  <button onclick="dzialanie('-')">ODEJMOWANIE</button>
+  <button onclick="dzialanie('*')">MNOŻENIE</button>
+  <button onclick="dzialanie('/')">DZIELENIE</button>
+
+  <div id="wynik"></div>
+
+  <script>
+    function dzialanie(operacja) {
+      const a = document.getElementById('liczba1').value;
+      const b = document.getElementById('liczba2').value;
+      const wynikDiv = document.getElementById('wynik');
+
+      
+      const x = parseFloat(a);
+      const y = parseFloat(b);
+
+      if (operacja === '/' && y === 0) {
+        wynikDiv.textContent = 'Nie wolno dzielić przez zero.';
+        return;
+      }
+
+      let wynik;
+      switch (operacja) {
+        case '+': wynik = x + y; break;
+        case '-': wynik = x - y; break;
+        case '*': wynik = x * y; break;
+        case '/': wynik = x / y; break;
+      }
+
+      wynikDiv.textContent = 'Wynik: ' + wynik;
+      
+    }
+  </script>
+</body>
+</html>
