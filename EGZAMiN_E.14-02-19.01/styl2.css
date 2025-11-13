@@ -1,0 +1,63 @@
+
+body {
+    font-family: Georgia;
+}
+
+header {
+    background: #824555;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+#gorny1,#gorny2 {
+    background: #A26475;
+    color: white;
+    width: 30%;
+    height: 300px;
+    float: left;
+}
+
+#gorny3 {
+    background: #A26475;
+    color: white;
+    width: 40%;
+    height: 300px;
+    text-align: right;
+    float: left;
+}
+
+main {
+    background: #F0EAE2;
+    padding: 50px;
+    clear: both;
+}
+
+footer {
+    background: #824555;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+table,td,th {
+    border: 2px solid #69293A;
+    padding: 7px;
+    border-collapse: collapse;
+}
+
+ul {
+    list-style: square;
+}
+
+main button#czerwony {
+    background: red;
+}
+
+main button#zielony {
+    background: green;
+}
+
+main button#niebieski {
+    background: blue;
+}

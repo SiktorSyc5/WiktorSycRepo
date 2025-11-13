@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formatowanie</title>
+<link rel="stylesheet" href="styl2.css">
+</head>
+
+<body>
+
+<header>
+<h1>Fortmatowanie dokumentów HTML</h1>
+</header>
+
+<div id="gorny1">
+<h2>Przykład listy - hobby</h2>
+<ul>
+<li>muzyka</li>
+<li>turystyka</li>
+<ol>
+<li>góry</li>
+<li>jeziora</li>
+<li>na rowerze</li>
+</ol>
+<li>książki</li>
+</ul>
+</div>
+
+<div id="gorny2">
+<h2>Przykład tabeli - rozkład dnia</h2>
+<table>
+<tr>
+<th>Pora dnia</th>
+<th>Obowiązki</th>
+</tr>
+<tr>
+<td>rano</td>
+<td>nauka</td>
+</tr>
+<tr>
+<td>południe</td>
+<td>zajęcia dodatkowe</td>
+</tr>
+<tr>
+<td>popołudnie</td>
+<td rowspan="2">moje hobby</td>
+</tr>
+<tr>
+<td>wieczór</td>
+</tr>
+</table>
+</div>
+
+
+<div id="gorny3">
+<img src="tekst.jpg" alt="technologia web">
+</div>
+
+<main>
+<p><label for="rozmiar">Podaj rozmiar tekstu w procentach:</label><input type="number" name="rozmiar" id="rozmiar">%</p>
+<p><select name="lista" id="lista">
+<option value="normal">prosty</option>
+<option value="italic">kursywa</option>
+</select></p>
+<p>Jakim kolorem sformatować tekst? Wybierz przycisk</p>
+<button type="submit" id="czerwony" onclick="czerwony()">&nbsp;</button>
+<button type="submit" id="zielony" onclick="zielony()">&nbsp;</button>
+<button type="submit" id="niebieski" onclick="niebieski()">&nbsp;</button>
+<p id="wynik">To jest przykład paragrafu, który może być dowolnie formatowany przez JavaScript</p>
+</main>
+
+<footer>
+<p>Formatowaniem tekstu zajmował się: Wiktor Syc</p>
+<a href="formatowanie.pl" target="_blank">Odwiedź także</a>
+</footer>
+<script src="skrypt.js"></script>
+
+</body>
+
+</html>
