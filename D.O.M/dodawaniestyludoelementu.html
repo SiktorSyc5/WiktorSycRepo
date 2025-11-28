@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+.p{
+    border: solid 1px red;
+}
+
+</style>
+
+<body>
+    
+<div id="box"></div>
+
+<script>
+    const box = document.getElementById("#box");
+    const akapit = document.createElement("p");
+    akapit.classList.add("p");
+    akapit.innerHTML = "to jest akapit z ramką";
+    box.appendChild(akapit);
+</script>
+
+
+
+</body>
+</html>
