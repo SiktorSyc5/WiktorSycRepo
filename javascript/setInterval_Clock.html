@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+
+    @font-face {
+
+
+        font-family: 'ClockFont';
+
+
+        src: url('AdvancedPixelLcd7-yGOq.ttf') format('truetype');
+
+
+    }
+
+
+</style>
+
+
+<script>
+
+
+    function time() {
+
+
+        let now = new Date();
+
+
+        let hours = now.getHours().toString();
+
+
+        let minutes = now.getMinutes().toString();
+
+
+        let seconds = now.getSeconds().toString();
+
+
+        let currentTime = hours + ":" + minutes + ":" + seconds;
+
+
+        let place = document.getElementById("timeDisplay");
+
+
+        place.innerHTML = currentTime;
+
+
+        // Custom font style
+
+
+        place.style.fontFamily = 'ClockFont';
+
+
+        place.style.fontSize = '96px';
+
+
+    }
+
+
+    setInterval(time, 1000); // Funkcja będzie wywoływana co sekundę
+
+
+</script>
+
+
+<p id="timeDisplay"></p>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+
+
+    function stoper() {
+
+
+        let hours = 0;
+
+
+        let minutes = 0;
+
+
+        let seconds = 0;
+
+
+        let timer = setInterval(function() {
+
+
+            if (seconds == 59){
+
+
+                if (minutes == 59){
+
+
+                    hours++;
+
+
+                    minutes = 0;
+
+
+                } else {
+
+
+                    minutes++;
+
+
+                }
+
+
+                seconds = 0;
+
+
+            }
+
+
+            else {
+
+
+                seconds++;
+
+
+            }
+
+
+            let czas = hours + ":" + minutes + ":" + seconds;
+
+
+            let place = document.querySelector("#timer");
+
+
+            place.innerHTML = czas;
+
+
+        }, 1000);
+
+
+    }
+
+
+</script>
+
+
+    <p id="timer"></p>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <button id="testButton">Testuj</button>
+
+
+
+<p id="output"></p>
+
+
+<script>
+
+
+    let button = document.querySelector("#testButton");
+
+
+    button.addEventListener("mouseover", mover);
+
+
+    button.addEventListener("click", clicker);
+
+
+    function mover() {
+
+
+        document.querySelector("#output").innerHTML += "over <br>";
+
+
+    }
+
+
+
+
+
+    function clicker() {
+
+
+        document.querySelector("#output").innerHTML += "click <br>";
+
+
+    }
+
+
+</script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontrola adresu mailowego</title>
+</head>
+<body>
+
+    <h3>Kontrola adresu mailowego</h3>
+
+    <form id="mailForm" action="write2DB.php" method="post">
+        <label for="mail">Podaj adres email</label>
+        <input type="email" name="fname" id="mail" >
+        <input type="submit" value="Wyślij" id="send">
+    </form>
+
+    <p id="wynik"></p>
+
+<script>
+document.getElementById('mailForm').addEventListener('submit', function (event) {
+    var mailText = document.getElementById('mail').value.trim();
+    var reg_email = /^[\w.-]+@([A-Za-z0-9-]+\.)+[A-Za-z]{2,}$/i;
+    var out = document.getElementById('wynik');
+
+    if (!reg_email.test(mailText)) {
+        event.preventDefault();
+        out.textContent = 'Nieprawidłowy adres e-mail';
+        out.style.color = 'red';
+    } else {
+        out.textContent = 'Adres e-mail poprawny';
+        out.style.color = 'green';
+        // formularz zostanie wysłany
+    }
+});
+</script>
+
+</body>
+</html>
+

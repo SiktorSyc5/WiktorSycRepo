@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+<p id="kolorTekst">Tekst</p>
+
+
+<p id="obramowanieTekst">Tekst wewnątrz obramowania</p>
+
+
+<script>
+
+
+    let kolorTekstu = document.querySelector("#kolorTekst");
+
+
+    kolorTekstu.addEventListener("click", zmienKolor);
+
+
+    function zmienKolor() {
+
+
+        document.querySelector("#kolorTekst").style.color = "red";
+
+
+    }
+
+
+    let obramowanieTekstu = document.querySelector("#obramowanieTekst");
+
+
+    obramowanieTekstu.addEventListener("click", function dodajObramowanie() {
+
+
+        document.querySelector("#obramowanieTekst").style.border = "2px solid black";
+
+
+    });
+
+
+</script>
+</head>
+<body>
+    
+</body>
+</html>

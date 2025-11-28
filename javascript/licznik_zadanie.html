@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <p id="licznik"></p>
+
+
+
+<script>
+
+
+    function licznik() {
+
+
+        let liczba = document.getElementById("licznik").innerHTML;
+
+
+        liczba = parseInt(liczba, 10) || 0;
+
+
+        if (liczba >= 10) {
+
+
+            liczba = 0;
+
+
+        }
+
+
+        liczba++;
+
+
+        document.getElementById("licznik").innerHTML = liczba;
+
+
+    }
+
+
+    setInterval(licznik, 1000);
+
+
+</script>
+</head>
+<body>
+    
+</body>
+</html>
